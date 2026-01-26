@@ -1,0 +1,120 @@
+/* Style Sheet */
+
+/* Navigation Bar Styling */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  /* Fixed navigation bar to top of page */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Ensure menu items are horizontally aligned*/
+  display: flex;
+  align-items: center;
+  z-index: 1000; /* Ensure Nav bar stays on top of other content */
+    }
+
+/* To keep the "About" etc. on the right side */
+
+li:first-child {
+  margin-right: auto;
+}
+/* Navigation Bar Links Styling */
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+
+/* To prevent the body content from being hidden under the fixed nav bar */
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 60px; /* Height of the nav bar */
+}
+
+/* To enable smoother scrolling down the page when clicking Nav bar links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* To ensure the body content is not hidden when scrolling to sections */
+
+h1{
+  scroll-margin-top: 80px; /* Height of the nav bar */
+}
+
+/* Lines 62-92. Responsive 3-column layout logic adapted from ByteGrad: 
+   "How to Create a Responsive 3 Column Layout in HTML & CSS"
+   Source: https://www.youtube.com/watch?v=sOJgvtsbZzM Accessed: Jan 26, 2026. AND Gemini 3 AI
+*/
+
+/* 1. The Parent Container */
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allows boxes to move to a new line */
+  gap: 20px; /* Consistent spacing between boxes */
+  padding: 20px;
+}
+
+/* 2. The Child Boxes */
+
+.box-1 {
+  /* 1 = grow to fill space, 1 = shrink if needed, 300px = ideal width */
+  flex: 1 1 300px;      
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex; /* This makes the boxes sit horizontally */
+  flex-direction: column; /* Default: boxes go side-by-side */
+}
+
+.box-2 {
+  flex: 1 1 300px;      
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-3 {
+  flex: 1 1 300px;      
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Formatting for project images inside each box */
+
+.box-image {
+  width: 100%;       /* Ensures image fills the box width */
+  height: auto;      /* Keeps aspect ratio */
+  border-radius: 4px;
+}
+
+/* Formatting for project links below each project image */
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* When hovering over a project link, underlines it */
+.project-link:hover {
+  text-decoration: underline;
+}

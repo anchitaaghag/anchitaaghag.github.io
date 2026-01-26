@@ -1,67 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<style>
-
-    ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #333333;
-  /* Fixed navigation bar to top of page */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* Ensure menu items are horizontally aligned*/
-  display: flex;
-  align-items: center;
-  z-index: 1000; /* Ensure Nav bar stays on top of other content */
-    }
-
-/* To keep the "About" etc. on the right side */
-
-li:first-child {
-  margin-right: auto;
-}
-
-ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul li a:hover {
-  background-color: #111111;
-}
-
-/* To prevent the body content from being hidden under the fixed nav bar */
-body {
-  margin: 0;
-  padding: 0;
-  padding-top: 60px; /* Height of the nav bar */
-}
-
-/* To enable smoother scrolling down the page when clicking Nav bar links */
-html {
-  scroll-behavior: smooth;
-}
-
-/* To ensure the body content is not hidden when scrolling to sections */
-
-h1{
-  scroll-margin-top: 80px; /* Height of the nav bar */
-}
-
-
-</style>
-
 <head>
     <title>Anchitaa Ghag</title>
     <!-- Added a line to import Font Awesome icons. Line 64 code from Gemini 3 AI.-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Added link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
   
   <nav>
@@ -91,7 +36,6 @@ h1{
   
   <body style="font-family: sans-serif; text-align: center">
     <h1>Hello! I'm Anchitaa.</h1>
-    <p>Coming Soon.</p>
     <p>I'm currently building my website. Stay tuned!</p>
 
     <h1 id="About">About</h1>
@@ -132,17 +76,30 @@ h1{
     <h1 id="Projects">Projects</h1>
     <h3><i>A collection of my latest projects.</i></h3>
 
-    <h3>Project 1</h3>
-    <h4>Description of Project 1</h4>
-    <h5>GitHub</h5>
+    <div class = "container">
+    
+    <div class ="box-1">
+      <img src="project1-screenshot.png" alt="Preview of Project 1" class="box-image">
+      <h3>Project 1</h3>
+      <p>This is a detailed description of Project 1. It explains what the project does and the tools used to build it.</p>
+      <a href="https://github.com/anchitaaghag/Codon-Optimization-for-Biopharming" class="project-link">View on GitHub</a>
+    </div>
 
-    <h3>Project 2</h3>
-    <h4>Description of Project 2</h4>
-    <h5>GitHub</h5>
-
-    <h3>Project 3</h3>
-    <h4>Description of Project 3</h4>
-    <h5>GitHub</h5>
+    <div class ="box-2">
+      <img src="project1-screenshot.png" alt="Preview of Project 1" class="box-image">
+      <h3>Project 1</h3>
+      <p>This is a detailed description of Project 1. It explains what the project does and the tools used to build it.</p>
+      <a href="https://github.com/anchitaaghag/Codon-Optimization-for-Biopharming" class="project-link">View on GitHub</a>
+    </div>
+    
+    <div class ="box-3">
+      <img src="project1-screenshot.png" alt="Preview of Project 1" class="box-image">
+      <h3>Project 1</h3>
+      <p>This is a detailed description of Project 1. It explains what the project does and the tools used to build it.</p>
+      <a href="https://github.com/anchitaaghag/Codon-Optimization-for-Biopharming" class="project-link">View on GitHub</a>
+    </div>
+    
+</div>
 
     <!-- Javascript function to send email. Lines 151-157 code from Gemini 3 AI.-->
     <!-- Code is meant to prevent bots from scraping the email address, as the assembly will happen in the browser, after it is clicked.-->
@@ -159,7 +116,7 @@ h1{
   <hr>
     
   <footer>
-        <p><small>Built and designed by Anchitaa G.</small></p>
+        <p><small>Built and designed by Anchitaa Ghag</small></p>
         <p><small>Licensed under CC BY-NC-ND 4.0</small></p>
   </footer>
     

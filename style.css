@@ -21,6 +21,7 @@ ul {
 
 li:first-child {
   margin-right: auto;
+
 }
 /* Navigation Bar Links Styling */
 ul li a {
@@ -33,6 +34,16 @@ ul li a {
 
 ul li a:hover {
   background-color: #111111;
+}
+/* When Nav bar links are hovered over with cursor, background darkens */
+ul li a:hover {
+  background-color: #111111;
+}
+
+/* However, this background will be "undone" for the first child, as this is the name */
+ul li:first-child a:hover {
+  background-color: transparent; 
+  cursor: default; /* This will also remove the 'pointer' hand icon so it doesn't look clickable */
 }
 
 /* To prevent the body content from being hidden under the fixed nav bar */
@@ -72,7 +83,7 @@ h1{
 .box-1 {
   /* 1 = grow to fill space, 1 = shrink if needed, 300px = ideal width */
   flex: 1 1 300px;      
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
   padding: 15px;
   border-radius: 8px;
   display: flex; /* This makes the boxes sit horizontally */
@@ -81,7 +92,7 @@ h1{
 
 .box-2 {
   flex: 1 1 300px;      
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
   padding: 15px;
   border-radius: 8px;
   display: flex;
@@ -90,7 +101,7 @@ h1{
 
 .box-3 {
   flex: 1 1 300px;      
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
   padding: 15px;
   border-radius: 8px;
   display: flex;

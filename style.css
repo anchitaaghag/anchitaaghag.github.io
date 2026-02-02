@@ -64,6 +64,16 @@ h1{
   scroll-margin-top: 80px; /* Height of the nav bar */
 }
 
+/* About Section Styling */
+
+.about-section {
+  max-width: 800px;  /* Limits the width of the text block */
+  margin: 40px auto; /* Centers the block and adds space top/bottom */
+  padding: 0 20px;   /* Prevents text from touching edges on mobile */
+  text-align: justify; /* Makes both sides of the text straight */
+  line-height: 1.6;  /* Adds some "breathing room" between lines */
+}
+
 /* Lines 62-92. Responsive 3-column layout logic adapted from ByteGrad: 
    "How to Create a Responsive 3 Column Layout in HTML & CSS"
    Source: https://www.youtube.com/watch?v=sOJgvtsbZzM Accessed: Jan 26, 2026. AND Gemini 3 AI

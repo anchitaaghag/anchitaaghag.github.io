@@ -65,13 +65,48 @@ h1{
 }
 
 /* About Section Styling */
+ 
+/*.about-section {
+ /* max-width: 800px;  /* Limits the width of the text block */
+ /* margin: 40px auto; /* Centers the block and adds space top/bottom */
+ /* padding: 0 20px;   /* Prevents text from touching edges on mobile */
+ /* text-align: justify; /* Makes both sides of the text straight */
+  /*line-height: 1.6;  /* Adds some "breathing room" between lines */
+/*}*/ 
+
 
 .about-section {
-  max-width: 800px;  /* Limits the width of the text block */
-  margin: 40px auto; /* Centers the block and adds space top/bottom */
-  padding: 0 20px;   /* Prevents text from touching edges on mobile */
-  text-align: justify; /* Makes both sides of the text straight */
-  line-height: 1.6;  /* Adds some "breathing room" between lines */
+    display: flex;         /* Puts image and text side-by-side */
+    align-items: center;   /* Centers them vertically */
+    justify-content: center;
+    max-width: 900px;      /* Slightly wider to fit both */
+    margin: 40px auto;
+    gap: 40px;            /* Space between image and text */
+    padding: 0 20px;
+}
+
+.about-image {
+    width: 200px;          /* Adjust size as needed */
+    height: 250px;         /* Make height longer than width for an oval */
+    object-fit: cover;     /* Prevents stretching */
+    border-radius: 50%;    /* This creates the oval/circle shape */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Optional: adds depth */
+}
+
+.about-text {
+    text-align: left;      /* Standard reading alignment */
+    flex: 1;               /* Takes up the remaining space */
+}
+
+/* Mobile Responsive: Stack them on top of each other on small screens */
+@media screen and (max-width: 600px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        text-align: center;
+    }
 }
 
 /* Lines 62-92. Responsive 3-column layout logic adapted from ByteGrad: 

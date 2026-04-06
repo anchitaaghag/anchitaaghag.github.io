@@ -85,12 +85,15 @@ h1{
     padding: 0 20px;
 }
 
+
 .about-image {
-    width: 200px;          /* Adjust size as needed */
-    height: 250px;         /* Make height longer than width for an oval */
-    object-fit: cover;     /* Prevents stretching */
-    border-radius: 50%;    /* This creates the oval/circle shape */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Optional: adds depth */
+    width: 300px;       /*  Wider rectangle */
+    height: 400px;      /* Rectangular height */
+    object-fit: cover; /* Keeps the image from stretching */
+    border-radius: 12px; /* UPDATED: Small curve on the corners */
+    /* FIXME OPTIONAL: Border and shadow */
+    /*border: 1px solid rgba(255,255,255,0.1);  */
+    /*box-shadow: 0 4px 10px rgba(0,0,0,0.2);  */
 }
 
 .about-text {
@@ -107,6 +110,22 @@ h1{
     .about-text {
         text-align: center;
     }
+}
+
+.about-text p {
+    /* Font Size: Slightly larger than standard 16px */
+    font-size: 1.1rem; /* approx 18px-19px */
+    
+    /* Spacing between lines */
+    line-height: 1.8; 
+    
+    /* Letter spacing: adding a tiny bit of air between letters */
+    letter-spacing: 0.02em;
+    
+    /* Space between paragraphs */
+    margin-bottom: 25px;
+    
+    font-weight: 300; /* Keeps it looking clean and light */
 }
 
 /* Lines 62-92. Responsive 3-column layout logic adapted from ByteGrad: 

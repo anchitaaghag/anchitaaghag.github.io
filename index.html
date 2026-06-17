@@ -37,8 +37,21 @@
   </nav>
   
   <body style="font-family: sans-serif; text-align: center">
-    <h1>Hello! I'm Anchitaa.</h1>
-    <p>I'm currently building my website. Stay tuned!</p>
+    
+    <!-- Interactive Landing Section -->
+    <header class="hero-container">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-content">
+        <h1>Hello! I'm Anchitaa.</h1>
+        <p>Data Science |  Bioinformatics </p>
+        <p class="subtext">Scroll down to see how I connect the dots between complex biological data and actionable insights.</p>
+        <a href="#About" class="cta-button">Explore My Work <i class="fa-solid fa-arrow-down"></i></a>
+      </div>
+    </header>
+  
+  <!-- <body style="font-family: sans-serif; text-align: center">-->
+    <!-- <h1>Hello! I'm Anchitaa.</h1>-->
+    <!-- <p>I'm currently building my website. Stay tuned!</p>-->
 
     <h1 id="About">About</h1>
     <section class="about-section">
@@ -109,7 +122,7 @@
     
 </div>
 
-    <!-- Javascript function to send email. Lines 151-157 code from Gemini 3 AI.-->
+    <!-- Javascript function to send email. Lines 151-244 code from Gemini 3 AI.-->
     <!-- Code is meant to prevent bots from scraping the email address, as the assembly will happen in the browser, after it is clicked.-->
     <script>
     function sendEmail() {
@@ -119,6 +132,116 @@
     }
     </script>
 
+     <script>
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Resize canvas cleanly
+      function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Track mouse coordinates
+      const mouse = { x: null, y: null, radius: 150 };
+      window.addEventListener('mousemove', function(event) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = event.clientX - rect.left;
+        mouse.y = event.clientY - rect.top;
+      });
+
+      // Clear mouse when it leaves the hero zone
+      window.addEventListener('mouseout', function() {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      // Node structure configuration
+      class DataPoint {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 1.2; // Speed X
+          this.vy = (Math.random() - 0.5) * 1.2; // Speed Y
+          this.baseRadius = Math.random() * 2 + 1.5;
+          this.radius = this.baseRadius;
+        }
+
+        update() {
+          // Normal boundary collision bouncing
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+          this.x += this.vx;
+          this.y += this.vy;
+
+          // Mouse proximity pull calculation
+          if (mouse.x !== null && mouse.y !== null) {
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < mouse.radius) {
+              // Gravitational clustering scale
+              this.x += dx * 0.03;
+              this.y += dy * 0.03;
+              this.radius = this.baseRadius * 1.5;
+            } else {
+              this.radius = this.baseRadius;
+            }
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 123, 255, 0.7)'; // Soft blue network nodes
+          ctx.fill();
+        }
+      }
+
+      // Initialize dataset array
+      const pointsArray = [];
+      const numberOfPoints = 80; // Adjust density here
+      for (let i = 0; i < numberOfPoints; i++) {
+        pointsArray.push(new DataPoint());
+      }
+
+      // Draw vector connections between near neighbors
+      function connectPoints() {
+        for (let a = 0; a < pointsArray.length; a++) {
+          for (let b = a; b < pointsArray.length; b++) {
+            let dx = pointsArray[a].x - pointsArray[b].x;
+            let dy = pointsArray[a].y - pointsArray[b].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 110) {
+              // Stronger line opacity when closer together
+              let opacity = (1 - (distance / 110)) * 0.18;
+              ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`; 
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(pointsArray[a].x, pointsArray[a].y);
+              ctx.lineTo(pointsArray[b].x, pointsArray[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      // Render Loop
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < pointsArray.length; i++) {
+          pointsArray[i].update();
+          pointsArray[i].draw();
+        }
+        connectPoints();
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
   </body>
 
   <hr>

@@ -65,16 +65,6 @@ h1{
 }
 
 /* About Section Styling */
- 
-/*.about-section {
- /* max-width: 800px;  /* Limits the width of the text block */
- /* margin: 40px auto; /* Centers the block and adds space top/bottom */
- /* padding: 0 20px;   /* Prevents text from touching edges on mobile */
- /* text-align: justify; /* Makes both sides of the text straight */
-  /*line-height: 1.6;  /* Adds some "breathing room" between lines */
-/*}*/ 
-
-
 .about-section {
     display: flex;         /* Puts image and text side-by-side */
     align-items: center;   /* Centers them vertically */
@@ -91,9 +81,6 @@ h1{
     height: 400px;      /* Rectangular height */
     object-fit: cover; /* Keeps the image from stretching */
     border-radius: 12px; /* UPDATED: Small curve on the corners */
-    /* FIXME OPTIONAL: Border and shadow */
-    /*border: 1px solid rgba(255,255,255,0.1);  */
-    /*box-shadow: 0 4px 10px rgba(0,0,0,0.2);  */
 }
 
 .about-text {
@@ -109,6 +96,9 @@ h1{
     }
     .about-text {
         text-align: center;
+    }
+    .badge-container {
+        justify-content: center !important;
     }
 }
 
@@ -126,6 +116,48 @@ h1{
     margin-bottom: 25px;
     
     font-weight: 300; /* Keeps it looking clean and light */
+}
+
+/* Certifications & Badges Styling */
+.badge-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.badge-item {
+  text-align: center;
+}
+
+.badge-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #002a5c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 auto 8px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling variant for upcoming/unearned badges */
+.badge-circle.upcoming {
+  border: 2px dashed #002a5c;
+  color: #002a5c;
+  background-color: #f9f9f9;
+  font-size: 11px;
+}
+
+.badge-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
 }
 
 /* Lines 62-92. Responsive 3-column layout logic adapted from ByteGrad: 
@@ -147,7 +179,6 @@ h1{
 .box-1 {
   /* 1 = grow to fill space, 1 = shrink if needed, 300px = ideal width */
   flex: 1 1 300px;      
-  /*border: 1px solid #ddd;*/
   padding: 15px;
   border-radius: 8px;
   display: flex; /* This makes the boxes sit horizontally */
@@ -156,7 +187,6 @@ h1{
 
 .box-2 {
   flex: 1 1 300px;      
-  /*border: 1px solid #ddd;*/
   padding: 15px;
   border-radius: 8px;
   display: flex;
@@ -165,7 +195,6 @@ h1{
 
 .box-3 {
   flex: 1 1 300px;      
-  /*border: 1px solid #ddd;*/
   padding: 15px;
   border-radius: 8px;
   display: flex;
@@ -193,4 +222,14 @@ h1{
 .project-link:hover {
   text-decoration: underline;
 }
-/* 
+
+/* Formatting for image-based badges */
+.badge-circle-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image doesn't look stretched or distorted */
+  margin: 0 auto 8px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+}
